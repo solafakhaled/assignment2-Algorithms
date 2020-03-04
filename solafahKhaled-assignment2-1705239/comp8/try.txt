@@ -1,0 +1,27 @@
+/*function warshallFloydImpl()
+{
+	this.makeAdjMatrix();
+
+	this.warshall = this.adjMatrix;
+	document.write('cry',this.warshall[0]);
+
+	for(var k=0; k<this.nv; k++){
+		for(var i=0; i<this.nv; i++){
+			for(var j=0; j<this.nv; j++){
+	
+				if(this.weighted)
+				{
+					TC[i,j] = Math.min(TC[i,j], TC[i,k] + TC[k,j]);
+				}
+				else
+				{
+					TC[i,j] = (TC[i,j] || (TC[i,k] && TC[k,j])) ? 1:0;
+				}
+
+				this.warshall[i,j] = (this.warshall[i,j] || (this.warshall[i,k] && this.warshall[k,j])) ? 1:0;
+				 
+			}
+		}
+	}
+
+}*/
