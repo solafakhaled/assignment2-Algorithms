@@ -13,6 +13,12 @@ var _v = [], _e = [];   // note naming conventions in upload guide
 
 // -----------------------------------------------------------------------
 
+/**
+*calls the functions to be executed
+*@method _main
+*@param
+*@returns
+*/
 function _main()   
 {
 		// published docs section (ref. assignment page)
@@ -68,6 +74,12 @@ function _main()
     }
 }
 
+/**
+*creates new Vertex object
+*@method VERTEX
+*@param  {Vertex} v - vertex 
+*@returns 
+*/
 
 // -----------------------------------------------------------------------
 
@@ -94,7 +106,12 @@ function Vertex(v)
 }
 
 // -----------------------------------------------------------------------
-
+/**
+*creates new Edge object
+*@method Edge
+*@param  {Vertex} vert_i - vertex {intger} weight- edge Weight 
+*@returns 
+*/
 function Edge(vert_i,weight)
 {
 	// base property fields
@@ -102,7 +119,12 @@ function Edge(vert_i,weight)
     this.weight = weight;						
 }
 
-
+/**
+*creates new graph object
+*@method Graph
+*@param   
+*@returns 
+*/
 // -----------------------------------------------------------------------
 
 function Graph()
@@ -161,13 +183,24 @@ function Graph()
 // -----------------------------------------------------------------------
 
 // transitive closure package 
-
+/**
+*check if there is a path between two vertieces
+*@method hasPath
+*@param  {Vertex} u_i - source vertex ,{Vertex} v_i - distination vertex
+*@returns true or false
+*/
 function hasPath(u_i, v_i)
 {
 	//check if there is a path between two vertices 
 	return this.warshallTC[u_i][v_i] == 1? true : false;
 }
 
+/**
+*return the shortest path between u and v 
+*@method shortestPath
+*@param  {Vertex} u_i - source vertex ,{Vertex} v_i - distination vertex
+*@returns shortestPath between u and v  
+*/
 
 function shortestPath(u_i, v_i)
 {
@@ -175,7 +208,12 @@ function shortestPath(u_i, v_i)
 	return this.floydD[u_i][v_i];
 }
 
-
+/**
+*check if the graph is dag or not 
+*@method isDAG
+*@param  
+*@returns true or false 
+*/
 function isDAG()
 {
 	//check if a specific graph is diracted acyclic graph.
@@ -185,7 +223,12 @@ function isDAG()
 	return true;
 }
 
-
+/**
+*apply warshall-Floyed to find transative closure matrix 
+*@method warshallFloydImpl
+*@param  
+*@returns 
+*/
 function warshallFloydImpl()
 {
     // implement the ADJACENCY matrix 
@@ -227,7 +270,12 @@ function warshallFloydImpl()
 
 }
 
-
+/**
+*find transative closure by dfs 
+*@method dfsTC
+*@param  
+*@returns 
+*/
 function dfsTC()
 {
     // for each vertex
@@ -269,6 +317,12 @@ function dfsTC()
 // use starter6-based P1M1 code as-is (fixes/improvements OK)
 // no JSDOC comments in this section (docs already published)
 // -----------------------------------------------------------------------
+/**
+*add new edge to the graph 
+*@method addEdgeImp1 
+*@param  {Vertex} u_i - source vertex ,{Vertex} v_i - distination vertex
+*@returns 
+*/
 function addEdgeImpl(u_i, v_i)
 {
     //fetch vertices using their idm where u: edge source vertex, v: target vertex
@@ -286,6 +340,12 @@ function addEdgeImpl(u_i, v_i)
 }
 
 // --------------------
+/**
+*add new edge to the graph with informations and weight
+*@method addEdgeImp12 
+*@param  {Vertex} u_i - source vertex ,{Vertex} v_i - distination vertex
+*@returns 
+*/
 function addEdgeImpl2(u_i, v_i, weight)
 {
     // fetch vertex u an v (source and distination) 
@@ -310,6 +370,12 @@ function addEdgeImpl2(u_i, v_i, weight)
 }
 
 // --------------------
+/**
+*add new edge to the graph with weight
+*@method addEdge 
+*@param  {Vertex} u_i - source vertex ,{Vertex} v_i - distination vertex
+*@returns 
+*/
 function addEdge(u_i, v_i, weight)
 {
     // fetch by id u and v (source and distination)
@@ -328,6 +394,12 @@ function addEdge(u_i, v_i, weight)
 }
 
 // --------------------
+/**
+*find all the adjacent vertecies by id and add it to adjacent Array   
+*@method addEdgeImp1 
+*@param  
+*@returns 
+*/
 function adjacentByIdImpl()
 {
 	//initialize adjacency array 
@@ -340,7 +412,12 @@ function adjacentByIdImpl()
     }
     return adjacentArr;
 }
-
+/**
+*insert vertices into internal vertex array and pass pairs to create edges 
+*@method better_input  
+*@param  {Vertex} v  ,{Edge} e 
+*@returns 
+*/
 // --------------------
 function better_input(v, e)
 {
@@ -372,6 +449,12 @@ function better_input(v, e)
 }
 
 // --------------------
+/**
+*print connectivity information output  
+*@method better_output 
+*@param 
+*@returns 
+*/
 function better_output()
 {
     
@@ -397,6 +480,13 @@ function better_output()
 }
 
 // --------------------
+/**
+*traverse using bfs  
+*@method bfsImpl 
+*@param  {Vertex} v_i - distination vertex
+*@returns 
+*/
+
 function bfsImpl(v_i)
 {
 	//create new queue
@@ -433,6 +523,12 @@ function bfsImpl(v_i)
 }
 
 // --------------------
+/**
+*check connectivity of graph 
+*@method addEdgeImp1 
+*@param  
+*@returns {string} out - print connectivity info 
+*/
 function componentInfoImpl()
 {
     var out;
@@ -451,6 +547,12 @@ function componentInfoImpl()
     return out;
 }
 
+/**
+*traverse using dfs  
+*@method dfsImpl
+*@param {Vertex} v_i - distination vertex
+*@returns 
+*/
 // --------------------
 function dfsImpl(v_i)
 {
@@ -473,6 +575,7 @@ function dfsImpl(v_i)
 }
 
 // --------------------
+
 function incidentEdgesImpl()
 {
     //create an array of objects and fill it 
